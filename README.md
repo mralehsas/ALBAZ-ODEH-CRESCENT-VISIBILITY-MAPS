@@ -1,17 +1,22 @@
-# خرائط عودة للهلال — ALBAZ Odeh Crescent Visibility Maps
+# معيار عودة ثلاثي الأبعاد — Odeh 3D Criterion
 
-برنامج فلكي عربي مستقل لبناء خرائط إمكانية رؤية الهلال وفق **معيار عودة**، مع أدوات للتحليل والتدقيق والتصدير. يعمل المشروع كصفحة HTML ثابتة، ولا يحتاج إلى خادم خلفي أو عملية بناء.
+برنامج فلكي عربي مستقل لبناء خرائط إمكانية رؤية الهلال وفق **معيار عودة ثلاثي الأبعاد**، مع أدوات للتحليل والتدقيق والتصدير. يعمل المشروع كصفحة HTML ثابتة، ولا يحتاج إلى خادم خلفي أو عملية بناء.
 
 ## الإصدار
 
 **v9.6.3 — Final Android/Web Build**
 
+## النسخة المباشرة
+
+https://mralehsas.github.io/ALBAZ-ODEH-CRESCENT-VISIBILITY-MAPS/
+
 ## الخصائص الرئيسية
 
 - خريطة عالمية لمناطق إمكانية رؤية الهلال.
+- عرض الخريطة ثنائي الأبعاد والكرة الأرضية ثلاثية الأبعاد.
 - تصنيف مناطق الرؤية بألوان معيار عودة.
 - المقارنة بين يوم الرصد واليوم التالي.
-- حساب مؤشرات الرؤية، ومنها مكث القمر، الاستطالة، فرق الارتفاع، فرق السمت، وعرض الهلال.
+- حساب مؤشرات الرؤية، ومنها مكث القمر، والاستطالة، وفرق الارتفاع، وفرق السمت، وعرض الهلال.
 - تدقيق المدن المرجعية وعواصم العالم.
 - عرض الاقتران المركزي والسطحي وأوقات الغروب وغروب القمر.
 - تصدير الخريطة والتقارير بصيغ PNG وHTML وPDF.
@@ -53,7 +58,7 @@ http://localhost:8080
 1. افتح **Settings** في المستودع.
 2. اختر **Pages**.
 3. من **Build and deployment** اختر المصدر **GitHub Actions**.
-4. افتح تبويب **Actions** وتابع مهمة `Deploy Odeh Atlas to GitHub Pages`.
+4. افتح تبويب **Actions** وتابع مهمة النشر.
 5. بعد نجاح المهمة سيظهر رابط الموقع في صفحة النشر.
 
 ## بنية المستودع
@@ -97,4 +102,4 @@ http://localhost:8080
 
 ## English summary
 
-A standalone Arabic web application for generating crescent-visibility maps using the Odeh criterion. It provides global mapping, city auditing, astronomical indicators, and PNG/HTML/PDF report export. The repository is a static site and includes an automated GitHub Pages workflow.
+**Odeh 3D Criterion — Crescent Visibility Maps** is a standalone Arabic web application for generating crescent-visibility maps using the Odeh criterion. It provides 2D and 3D visualization, global mapping, city auditing, astronomical indicators, and PNG/HTML/PDF report export.
