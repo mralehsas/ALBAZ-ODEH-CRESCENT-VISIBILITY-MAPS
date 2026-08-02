@@ -1,0 +1,45 @@
+name: Install direct PDF export
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/scripts/install-direct-pdf-export.py'
+      - '.github/workflows/install-direct-pdf-export.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install direct PDF export
+        run: python .github/scripts/install-direct-pdf-export.py
+
+      - name: Validate JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html = Path('index.html').read_text(encoding='utf-8')
+          scripts = re.findall(r'<script(?:\s[^>]*)?>([\s\S]*?)</script>', html, re.I)
+          Path('/tmp/index-scripts.js').write_text('\n'.join(scripts), encoding='utf-8')
+          PY
+          node --check /tmp/index-scripts.js
+
+      - name: Commit updated index
+        run: |
+          if git diff --quiet -- index.html; then
+            echo 'No PDF export changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Enable direct PDF file download'
+          git push
