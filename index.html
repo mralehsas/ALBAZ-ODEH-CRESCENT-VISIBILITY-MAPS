@@ -3531,10 +3531,32 @@ function getAuditTableHTML(){
   return audit.outerHTML;
 }
 
+function getCurrentCaseTitle(){
+  let dateText = '';
+  try{
+    if(typeof formatCaseDateArabic === 'function'){
+      dateText = String(formatCaseDateArabic() || '').trim();
+    }
+  }catch(e){}
+
+  if(!dateText){
+    const dateLabel = document.getElementById('dateLabel');
+    const dateInput = document.getElementById('dateInput');
+    dateText = String(
+      (dateLabel && dateLabel.textContent && dateLabel.textContent.trim() !== '—')
+        ? dateLabel.textContent
+        : ((dateInput && dateInput.value) || '')
+    ).trim();
+  }
+
+  const baseTitle = 'تقرير خريطة رؤية الهلال حسب معيار عودة';
+  return dateText ? `${baseTitle} — ${dateText}` : baseTitle;
+}
+
 function makeReportHTML(includeScript=false){
   const canvas = document.getElementById('mapCanvas');
   const img = canvas.toDataURL('image/png');
-  const title = getCurrentCaseTitle();
+  const title = escapeHTML(getCurrentCaseTitle());
   const s = getCurrentSettingsText();
   const generated = new Date().toLocaleString('ar-IQ');
   const status = document.getElementById('status').textContent || '';
