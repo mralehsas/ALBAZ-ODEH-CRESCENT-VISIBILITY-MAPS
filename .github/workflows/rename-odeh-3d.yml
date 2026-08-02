@@ -1,0 +1,56 @@
+name: Apply Odeh 3D project name
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rename-project:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Apply the Arabic project name safely
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("index.html")
+          text = path.read_text(encoding="utf-8")
+
+          replacements = (
+              ("خرائط عودة للهلال", "معيار عودة ثلاثي الأبعاد"),
+              ("خرائط رؤية الهلال — معيار عودة", "معيار عودة ثلاثي الأبعاد"),
+              ("تقرير معيار عودة - ${site.name} - ${formatCaseDateISO()}",
+               "تقرير معيار عودة ثلاثي الأبعاد - ${site.name} - ${formatCaseDateISO()}"),
+          )
+
+          changed = text
+          for old, new in replacements:
+              changed = changed.replace(old, new)
+
+          if changed == text:
+              print("No project-name text required replacement.")
+          else:
+              path.write_text(changed, encoding="utf-8", newline="\n")
+              print("Updated the visible project-name text only.")
+
+      - name: Commit the renamed interface
+        shell: bash
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No index.html changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "feat: rename interface to Odeh 3D Criterion"
+          git push
