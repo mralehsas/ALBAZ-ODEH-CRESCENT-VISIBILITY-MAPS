@@ -1,0 +1,2 @@
+Force GitHub Pages deployment after PDF export repair.
+Latest required index commit: de27c537653d43fac867c5be0715909de7bf4b4e
