@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software in research, please cite it using the metadata below."
+title: "ALBAZ Odeh Crescent Visibility Maps"
+type: software
+authors:
+  - family-names: "Albaz"
+    given-names: "Omar"
+version: "9.6.3"
+date-released: "2026-08-02"
+license: "LicenseRef-All-Rights-Reserved"
+abstract: "Arabic static web application for crescent-visibility mapping and auditing according to the Odeh criterion."
+keywords:
+  - crescent visibility
+  - Odeh criterion
+  - lunar calendar
+  - astronomy
+  - الهلال

@@ -1,0 +1,19 @@
+# Operating systems
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local servers and temporary files
+*.log
+.tmp/
+tmp/
+
+# Archives and local release outputs
+*.zip
+release/

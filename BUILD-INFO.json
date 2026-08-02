@@ -1,0 +1,11 @@
+{
+  "package": "ALBAZ-ODEH-CRESCENT-VISIBILITY-MAPS",
+  "version": "9.6.3",
+  "generated_at": "2026-08-02T19:34:17.349449+00:00",
+  "source_file": "index.html",
+  "source_sha256": "4c354bbc01858e0257257e0299171d8abcbb1b237b2d1389925cdbfeb7340303",
+  "public_index_sha256": "69c0e8d8c1d08929015c18297d0aca37ac7cf6cf4847833d675284f53027df21",
+  "font_face_blocks_removed": 2,
+  "external_http_urls_in_public_index": 0,
+  "embedded_font_payloads_in_public_index": 0
+}
